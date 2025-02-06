@@ -1,9 +1,9 @@
-import React from 'react'
-
-const about = () => {
+function About() {
   return (
-    <div>home</div>
-  )
+    <div className="w-full h-screen bg-cover bg-center flex flex-col items-center justify-center" style={{ backgroundImage: "url('/1.png')" }}>
+      <h1 className="text-white text-3xl font-bold">About Page</h1>
+    </div>
+  );
 }
 
-export default about
+export default About;
