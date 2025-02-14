@@ -19,7 +19,7 @@ function Navbar() {
   }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 w-full px-4 py-2 z-50 flex justify-between items-center transition-all duration-300`}>
+    <nav className={`fixed top-0 left-0 h-30 w-full px-4 py-2 z-50 flex justify-between items-center transition-all duration-300 shadow-lg`}>
       {/* Left: Mobile View (Hamburger Menu & Logo) */}
       <div className="flex items-center space-x-3 md:space-x-6">
         <button onClick={toggleMenu} className="md:hidden text-3xl focus:outline-none">
@@ -28,7 +28,7 @@ function Navbar() {
         <img 
           src="/kk.png" 
           alt="Logo" 
-          className={`h-24 sm:h-20 md:h-24 lg:h-28 object-contain transition-all duration-300 ${menuOpen ? "opacity-80 scale-90" : ""}`}
+          className={`h-24 sm:h-20 md:h-24 lg:h-40 object-contain transition-all duration-300 ${menuOpen ? "opacity-80 scale-90" : ""}`}
         />
       </div>
 
@@ -40,7 +40,7 @@ function Navbar() {
               to={`/${item.toLowerCase()}`} 
               onClick={() => item === "Home" && (window.location.href = "/")} 
               className={`relative transition-all duration-300 group ${
-                isScrolled || menuOpen ? "text-black" : "text-white"
+                isScrolled || menuOpen ? "text-black" : "text-gray-900"
               }`}
             >
               {item}
