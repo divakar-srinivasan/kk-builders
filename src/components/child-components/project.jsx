@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import bg1 from "../../assets/bg-3.jpg"
+
 
 const Project = () => {
   const [projects, setProjects] = useState([]);
@@ -30,8 +32,7 @@ const Project = () => {
 
   return (
     <>
-        <div className="w-full h-screen bg-cover bg-center flex flex-col items-center justify-center p-10" style={{ backgroundImage: "url('/p7.jpg')" }}>
-      
+        <div className="w-full h-screen bg-cover bg-center flex flex-col items-center justify-center p-10" style={{ backgroundImage: `url(${bg1})` }}>
     </div>
     <div className="flex flex-col mt-5 px-5">
       {error && <p className="text-red-500">{error}</p>}

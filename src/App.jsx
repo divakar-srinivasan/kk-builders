@@ -4,6 +4,7 @@ import Home from "./components/child-components/home"
 import About from "./components/child-components/about"
 import Project from "./components/child-components/project"
 import Contact from "./components/child-components/contact"
+import Footer from "./components/footer"
 function App() {
   return (
     <div>
@@ -15,6 +16,7 @@ function App() {
         <Route path="/About" element={<About/>}/>
         <Route path="contact" element={<Contact/>}/>
       </Routes>
+      <Footer/>
     </div>
     
   )

@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-
+import img1 from '../../assets/6.jpg'
+import img2 from '../../assets/2.jpg';
+import img3 from '../../assets/3.jpg';
+import office from '../../assets/off6.png'
 function Home() {
-  const images = ["/ex1.avif", "/9.webp", "/ex2.avif"];
+  const images = [img1,img2,img3];
   const [currentIndex, setCurrentIndex] = useState(0);
   const navigate = useNavigate();
 
@@ -68,7 +71,7 @@ function Home() {
       {/* Image and Content Section */}
       <div className="flex justify-start gap-10 p-10">
         <div className="w-1/2 ps-10">
-          <img src="/off6.png" alt="Office" className="h-130 w-130" />
+          <img src={office} alt="Office" className="h-130 w-130" />
         </div>
         <div className="w-1/2 p-6 text-gray-800">
           <h3 className="text-3xl font-bold mb-4">Building the Future</h3>
