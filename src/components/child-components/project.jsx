@@ -63,7 +63,7 @@ const Project = () => {
             </div>
           ))
         ) : (
-          <p className="text-white text-center">Loading project details...</p>
+          <p className="text-red-600 p-10 text-center">Loading project details...</p>
         )}
       </div>
     </div>
