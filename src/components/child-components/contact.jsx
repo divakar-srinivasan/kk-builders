@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import img1 from '../../assets/1.jpg';
+import { motion } from 'framer-motion';
+
 function Contact() {
   const [formData, setFormData] = useState({
     name: '',
@@ -26,160 +28,152 @@ function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-2xl">
-        <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">Contact Us</h1>
-        <p className="text-gray-600 mb-8 text-center">
-          Have questions or need a quote? Fill out the form below, and we'll get back to you shortly.
-        </p>
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700">Full Name:</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-              required
-            />
-          </div>
-
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email:</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-              required
-            />
-          </div>
-
-          <div>
-            <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Phone Number:</label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-              required
-            />
-          </div>
-
-          <div>
-            <label htmlFor="location" className="block text-sm font-medium text-gray-700">Location of Project:</label>
-            <input
-              type="text"
-              id="location"
-              name="location"
-              value={formData.location}
-              onChange={handleChange}
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-              required
-            />
-          </div>
-
-          <div>
-            <label htmlFor="constructionType" className="block text-sm font-medium text-gray-700">Type of Residential Construction:</label>
-            <select
-              id="constructionType"
-              name="constructionType"
-              value={formData.constructionType}
-              onChange={handleChange}
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-              required
-            >
-              <option value="">Select</option>
-              <option value="New Construction">New Construction</option>
-              <option value="Renovation">Renovation</option>
-              <option value="Custom Home">Custom Home</option>
-              <option value="Multi-Family Housing">Multi-Family Housing</option>
-            </select>
-          </div>
-
-          <div>
-            <label htmlFor="projectSize" className="block text-sm font-medium text-gray-700">Project Size (in sq. ft.):</label>
-            <input
-              type="number"
-              id="projectSize"
-              name="projectSize"
-              value={formData.projectSize}
-              onChange={handleChange}
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-              required
-            />
-          </div>
-
-          <div>
-            <label htmlFor="budget" className="block text-sm font-medium text-gray-700">Estimated Budget:</label>
-            <input
-              type="text"
-              id="budget"
-              name="budget"
-              value={formData.budget}
-              onChange={handleChange}
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-              required
-            />
-          </div>
-
-          <div>
-            <label htmlFor="timeline" className="block text-sm font-medium text-gray-700">Project Timeline:</label>
-            <input
-              type="text"
-              id="timeline"
-              name="timeline"
-              value={formData.timeline}
-              onChange={handleChange}
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-              required
-            />
-          </div>
-
-          <div>
-            <label htmlFor="additionalQueries" className="block text-sm font-medium text-gray-700">Additional Queries:</label>
-            <textarea
-              id="additionalQueries"
-              name="additionalQueries"
-              value={formData.additionalQueries}
-              onChange={handleChange}
-              rows="4"
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-            />
-          </div>
-
-          <div>
-            <label htmlFor="howDidYouHearAboutUs" className="block text-sm font-medium text-gray-700">How Did You Hear About Us?</label>
-            <select
-              id="howDidYouHearAboutUs"
-              name="howDidYouHearAboutUs"
-              value={formData.howDidYouHearAboutUs}
-              onChange={handleChange}
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-              required
-            >
-              <option value="">Select</option>
-              <option value="Google Search">Google Search</option>
-              <option value="Social Media">Social Media</option>
-              <option value="Referral">Referral</option>
-              <option value="Advertisement">Advertisement</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-
-          <button
-            type="submit"
-            className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+    <div 
+      className="min-h-screen bg-cover bg-center bg-fixed"
+      style={{ backgroundImage: `url(${img1})` }}
+    >
+      <div className="min-h-screen bg-black/80 flex justify-center items-center py-12 px-6 lg:px-20">
+        
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="bg-white/95 rounded-lg shadow-2xl w-full max-w-4xl p-10 md:p-16"
+        >
+          
+          {/* Header */}
+          <motion.h1
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-5xl font-extrabold text-gray-900 mb-8 text-center tracking-tight"
           >
-            Submit
-          </button>
-        </form>
+            Contact <span className="text-blue-600">Us</span>
+          </motion.h1>
+          
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.4 }}
+            className="text-gray-600 text-lg mb-10 text-center leading-relaxed"
+          >
+            Have questions or need a quote? Fill out the form below and we'll get back to you shortly.
+          </motion.p>
+
+          {/* Form */}
+          <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+            {/* Form Fields */}
+            {[
+              { id: "name", label: "Full Name", type: "text" },
+              { id: "email", label: "Email", type: "email" },
+              { id: "phone", label: "Phone Number", type: "tel" },
+              { id: "location", label: "Location", type: "text" },
+              { id: "projectSize", label: "Project Size (sq. ft.)", type: "number" },
+              { id: "budget", label: "Budget", type: "text" },
+              { id: "timeline", label: "Timeline", type: "text" }
+            ].map((field, index) => (
+              <motion.div
+                key={field.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <label htmlFor={field.id} className="block text-sm font-medium text-gray-700">{field.label}</label>
+                <input
+                  type={field.type}
+                  id={field.id}
+                  name={field.id}
+                  value={formData[field.id]}
+                  onChange={handleChange}
+                  className="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 transform hover:scale-105"
+                  required
+                />
+              </motion.div>
+            ))}
+
+            {/* Construction Type */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+            >
+              <label htmlFor="constructionType" className="block text-sm font-medium text-gray-700">Construction Type</label>
+              <select
+                id="constructionType"
+                name="constructionType"
+                value={formData.constructionType}
+                onChange={handleChange}
+                className="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 transform hover:scale-105"
+                required
+              >
+                <option value="">Select</option>
+                <option value="New Construction">New Construction</option>
+                <option value="Renovation">Renovation</option>
+                <option value="Custom Home">Custom Home</option>
+                <option value="Multi-Family Housing">Multi-Family Housing</option>
+              </select>
+            </motion.div>
+
+            {/* Additional Queries */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="md:col-span-2"
+            >
+              <label htmlFor="additionalQueries" className="block text-sm font-medium text-gray-700">Additional Queries</label>
+              <textarea
+                id="additionalQueries"
+                name="additionalQueries"
+                value={formData.additionalQueries}
+                onChange={handleChange}
+                rows="4"
+                className="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 transform hover:scale-105"
+              />
+            </motion.div>
+
+            {/* How did you hear about us */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.7 }}
+              className="md:col-span-2"
+            >
+              <label htmlFor="howDidYouHearAboutUs" className="block text-sm font-medium text-gray-700">How Did You Hear About Us?</label>
+              <select
+                id="howDidYouHearAboutUs"
+                name="howDidYouHearAboutUs"
+                value={formData.howDidYouHearAboutUs}
+                onChange={handleChange}
+                className="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 transform hover:scale-105"
+                required
+              >
+                <option value="">Select</option>
+                <option value="Google">Google</option>
+                <option value="Referral">Referral</option>
+                <option value="Social Media">Social Media</option>
+                <option value="Other">Other</option>
+              </select>
+            </motion.div>
+
+            {/* Submit Button */}
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.9 }}
+              className="md:col-span-2"
+            >
+              <button
+                type="submit"
+                className="w-full bg-blue-600 text-white py-3 px-6 rounded-md shadow-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105"
+              >
+                Submit
+              </button>
+            </motion.div>
+
+          </form>
+        </motion.div>
       </div>
     </div>
   );
