@@ -5,14 +5,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';  // ✅ Use navigate hook
 
 const Footer = () => {
-  const [email, setEmail] = useState('');
   const navigate = useNavigate();  // ✅ Navigation hook
-
-  const handleSubscribe = (e) => {
-    e.preventDefault();
-    alert(`Subscribed successfully with: ${email}`);
-    setEmail('');
-  };
 
   // ✅ Navigation function for Quick Links
   const handleNavigation = (path) => {
@@ -92,26 +85,10 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Column 3: Newsletter Subscription */}
+          {/* Column 3: Office Location */}
           <div>
-            <h3 className="text-2xl font-semibold mb-6">Stay Updated</h3>
-            <p className="text-gray-400 mb-4">Subscribe to our newsletter to get the latest updates and offers.</p>
-            <form onSubmit={handleSubscribe} className="flex flex-col space-y-4">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
-                className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                required
-              />
-              <button
-                type="submit"
-                className="bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300"
-              >
-                Subscribe
-              </button>
-            </form>
+            <h3 className="text-2xl font-semibold mb-6">Office Location</h3>
+            <p className="text-gray-400">Erode, Tamil Nadu</p>
           </div>
         </div>
 

@@ -35,7 +35,7 @@ function Navbar() {
 
       {/* Desktop Menu */}
       <ul className="hidden md:flex space-x-8 text-lg font-medium">
-        {["Home", "Project", "About", "Contact"].map((item, index) => (
+        {["Home", "Project","architect","Blog", "About", "Contact"].map((item, index) => (
           <li key={index}>
 <Link
   to={`/${item.toLowerCase()}`}
@@ -61,7 +61,7 @@ function Navbar() {
         ${menuOpen ? "translate-x-0 shadow-2xl" : "-translate-x-full"}`}
 >
   <ul className="flex flex-col space-y-6">
-    {["Home", "Project", "About", "Contact"].map((item, index) => (
+    {["Home", "Project","architect","Blog", "About", "Contact"].map((item, index) => (
       <li key={index} className="border-b border-gray-700 last:border-none pb-2">
         <Link
           to={`/${item.toLowerCase()}`}
