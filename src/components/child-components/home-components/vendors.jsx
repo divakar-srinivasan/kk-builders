@@ -4,18 +4,21 @@ import { motion } from "framer-motion";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import img1 from "../../../assets/1.jpg";
-import img2 from "../../../assets/2.jpg";
-import img3 from "../../../assets/3.jpg";
-import img4 from "../../../assets/4.jpg";
-import img5 from "../../../assets/5.jpg";
-
+import img1 from "../../../assets/16.jpg";
+import img2 from "../../../assets/17.jpg";
+import img3 from "../../../assets/18.png";
+import img4 from "../../../assets/19.avif";
+import img5 from "../../../assets/20.jpg";
+import img6 from "../../../assets/21.webp";
+import img7 from "../../../assets/22.jpg";
 const vendors = [
-  { name: "RR", image: img1 },
-  { name: "Orbit", image: img2 },
-  { name: "Luminous", image: img3 },
-  { name: "Havells", image: img4 },
-  { name: "Legrand", image: img5 },
+  { name: "Amman TRY Steel", image: img1 },
+  { name: "Kiscol Steel", image: img2 },
+  { name: "JSW Steel", image: img3 },
+  { name: "UltraTech Cement", image: img4 },
+  { name: "Dalmia Cement", image: img5 },
+  { name: "Bricks", image: img6 },
+  { name: "Jalli Stone", image: img7 },
 ];
 
 const VendorSlideshow = () => {

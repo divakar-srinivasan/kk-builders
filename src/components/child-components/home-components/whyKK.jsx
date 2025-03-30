@@ -15,19 +15,22 @@ function WhyUs() {
 
   // Intersection Observer Hook
   const { ref, inView } = useInView({
-    triggerOnce: false, // Ensures animation triggers on every scroll
-    threshold: 0.3, // Starts animation when 30% of the section is visible
+    triggerOnce: false,
+    threshold: 0.3,
   });
 
   return (
-    <div
-      ref={ref}
-      className="min-h-screen flex flex-col justify-center items-center w-full text-center relative overflow-hidden"
-    >
-      {/* Animated Gold Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#FFD700] via-gray-500 to-[#FFD700] animate-bg-move"></div>
+    <div ref={ref} className="relative w-full min-h-screen flex flex-col justify-center items-center text-center overflow-hidden">
+      {/* Background Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#FFD700] via-gray-500 to-[#FFD700] animate-bg-move brightness-95"></div>
 
-      {/* Content Wrapper (Text on top of background) */}
+      {/* White gradient overlay (top & bottom) */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 w-full h-12 bg-gradient-to-b from-white/70 to-transparent"></div>
+        <div className="absolute bottom-0 w-full h-16 bg-gradient-to-t from-white/70 to-transparent"></div>
+      </div>
+
+      {/* Content Wrapper */}
       <div className="relative z-10">
         <motion.h2
           className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-12"
@@ -38,7 +41,8 @@ function WhyUs() {
           Why KK Construction?
         </motion.h2>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-16 max-w-5xl mx-auto">
+        {/* Stats Section */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-12 max-w-5xl mx-auto">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
@@ -56,8 +60,9 @@ function WhyUs() {
           ))}
         </div>
 
+        {/* ONE STOP SOLUTION Section */}
         <motion.div
-          className="mt-16"
+          className="mt-12"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
           transition={{ duration: 1, delay: 0.5 }}
@@ -69,7 +74,7 @@ function WhyUs() {
         </motion.div>
       </div>
 
-      {/* Custom Animations */}
+      {/* Background Animation */}
       <style jsx>{`
         @keyframes bg-move {
           0% { background-position: 0% 0%; }
