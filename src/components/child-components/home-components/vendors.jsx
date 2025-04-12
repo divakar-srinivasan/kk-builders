@@ -11,14 +11,16 @@ import img4 from "../../../assets/19.avif";
 import img5 from "../../../assets/20.jpg";
 import img6 from "../../../assets/21.webp";
 import img7 from "../../../assets/22.jpg";
+import img8 from "../../../assets/25.jpg"
 const vendors = [
   { name: "Amman TRY Steel", image: img1 },
   { name: "Kiscol Steel", image: img2 },
   { name: "JSW Steel", image: img3 },
   { name: "UltraTech Cement", image: img4 },
   { name: "Dalmia Cement", image: img5 },
-  { name: "Bricks", image: img6 },
-  { name: "Jalli Stone", image: img7 },
+  { name: "Ambuja Cement", image: img6 },
+  { name: "Maha Cement", image: img7 },
+  { name: "Tata steel", image: img8 },
 ];
 
 const VendorSlideshow = () => {

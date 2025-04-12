@@ -23,7 +23,6 @@ function Navbar() {
         ${isScrolled ? "bg-gray-500/40 shadow-lg" : "bg-gray-700/20 shadow-lg"}`}
     >
       <div className="flex items-center space-x-4">
-        {/* Mobile Menu Toggle */}
         <button
           onClick={toggleMenu}
           className="md:hidden text-3xl text-white transition-transform duration-300 ease-in-out hover:scale-110 focus:outline-none"
@@ -33,9 +32,9 @@ function Navbar() {
         <img src={logo} alt="Logo" className="h-14 object-contain transition-all duration-300 ease-in-out hover:scale-105" />
       </div>
 
-      {/* Desktop Menu */}
+
       <ul className="hidden md:flex space-x-8 text-lg font-medium">
-        {["Home", "Project","architect","Blog", "About", "Contact"].map((item, index) => (
+        {["Home", "Project","architect", "About", "Contact"].map((item, index) => (
           <li key={index}>
 <Link
   to={`/${item.toLowerCase()}`}
@@ -55,13 +54,12 @@ function Navbar() {
         ))}
       </ul>
 
-{/* Mobile Menu - Smooth Slide-in */}
 <div
   className={`fixed inset-y-0 left-0 w-2/3 bg-gray-900/90 p-6 transform transition-transform duration-500 ease-in-out
         ${menuOpen ? "translate-x-0 shadow-2xl" : "-translate-x-full"}`}
 >
   <ul className="flex flex-col space-y-6">
-    {["Home", "Project","architect","Blog", "About", "Contact"].map((item, index) => (
+    {["Home", "Project","architect", "About", "Contact"].map((item, index) => (
       <li key={index} className="border-b border-gray-700 last:border-none pb-2">
         <Link
           to={`/${item.toLowerCase()}`}
@@ -83,8 +81,7 @@ function Navbar() {
     ))}
   </ul>
 </div>
-
-    </nav>
+</nav>
   );
 }
 

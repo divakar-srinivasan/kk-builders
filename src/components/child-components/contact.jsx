@@ -28,19 +28,19 @@ function Contact() {
   };
 
   return (
-    <div 
+    <div
       className="min-h-screen bg-cover bg-center bg-fixed"
       style={{ backgroundImage: `url(${img1})` }}
     >
       <div className="min-h-screen bg-black/80 flex justify-center items-center py-12 px-6 lg:px-20">
-        
+
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
           className="bg-white/95 rounded-lg shadow-2xl w-full max-w-4xl p-10 md:p-16"
         >
-          
+
           {/* Header */}
           <motion.h1
             initial={{ opacity: 0, y: -30 }}
@@ -50,7 +50,7 @@ function Contact() {
           >
             Contact <span className="text-blue-600">Us</span>
           </motion.h1>
-          
+
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -133,7 +133,7 @@ function Contact() {
               />
             </motion.div>
 
-            {/* How did you hear about us */}
+            {/* How Did You Hear About Us */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -171,8 +171,32 @@ function Contact() {
                 Submit
               </button>
             </motion.div>
-
           </form>
+
+          {/* Contact Options After Form */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 1.1 }}
+            className="mt-10 flex flex-col md:flex-row justify-center items-center gap-6"
+          >
+            {/* Call Us */}
+            <a
+              href="tel:+919876543210"
+              className="bg-green-600 text-white px-6 py-3 rounded-md shadow-lg hover:bg-green-700 transition-all duration-300 transform hover:scale-105 text-center w-full md:w-auto"
+            >
+              📞 Call Us
+            </a>
+
+            {/* Mail Us */}
+            <a
+              href="mailto:yourmail@example.com"
+              className="bg-purple-600 text-white px-6 py-3 rounded-md shadow-lg hover:bg-purple-700 transition-all duration-300 transform hover:scale-105 text-center w-full md:w-auto"
+            >
+              📧 Mail Us
+            </a>
+          </motion.div>
+
         </motion.div>
       </div>
     </div>

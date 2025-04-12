@@ -1,8 +1,8 @@
 import React from "react";
 import Slideshow from "./home-components/slideshow";
-import img3D1 from "../../assets/1.jpg";
-import img3D2 from "../../assets/2.jpg";
-import img3D3 from "../../assets/3.jpg";
+import img3D1 from "../../assets/24.jpg";
+import img3D2 from "../../assets/23.jpg";
+import img3D3 from "../../assets/24.jpg";
 
 import imgStructural1 from "../../assets/4.jpg";
 import imgStructural2 from "../../assets/5.jpg";

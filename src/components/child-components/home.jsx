@@ -7,6 +7,7 @@ import img2 from "../../assets/2.jpg";
 import img3 from "../../assets/3.jpg";
 import WhyUs from "./home-components/whyKK";
 import VendorSlideshow from "./home-components/vendors";
+import Location from "./home-components/location";
 
 function Home() {
   return (
@@ -15,8 +16,9 @@ function Home() {
       <InfoSection />
       <Services />
       <ProcessFlow />
-      <WhyUs/>
-      <VendorSlideshow/>
+      <Location /> {/* ✅ Capital L */}
+      <WhyUs />
+      <VendorSlideshow />
     </div>
   );
 }

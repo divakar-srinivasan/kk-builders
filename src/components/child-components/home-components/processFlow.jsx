@@ -2,7 +2,7 @@ import React from "react";
 import { FaArrowDown } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import img1 from "../../../assets/15.webp";
+import img1 from "../../../assets/15.jpg";
 
 const ProcessFlow = () => {
   const projectSteps = [
