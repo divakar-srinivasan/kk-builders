@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import img1 from '../../assets/1.jpg';
 import { motion } from 'framer-motion';
+import axios from 'axios';  // Import Axios
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -16,15 +17,37 @@ function Contact() {
     howDidYouHearAboutUs: '',
   });
 
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(false);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form Data Submitted:', formData);
-    alert('Thank you for contacting us! We will get back to you soon.');
+
+    try {
+      setLoading(true);
+      setError(null);
+      setSuccess(false);
+
+      // Make POST request to the backend API
+      const response = await axios.post('http://localhost:5000/api/contact/send-email', formData);
+
+      if (response.status === 200) {
+        setSuccess(true);
+        alert('Thank you for contacting us! We will get back to you soon.');
+        setFormData({});
+      }
+    } catch (err) {
+      console.error('Error sending email:', err);
+      setError('There was an error sending your message. Please try again later.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -166,36 +189,17 @@ function Contact() {
             >
               <button
                 type="submit"
-                className="w-full bg-blue-600 text-white py-3 px-6 rounded-md shadow-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105"
+                className={`w-full ${loading ? 'bg-gray-400' : 'bg-blue-600'} text-white py-3 px-6 rounded-md shadow-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105`}
+                disabled={loading}
               >
-                Submit
+                {loading ? 'Sending...' : 'Submit'}
               </button>
             </motion.div>
           </form>
 
-          {/* Contact Options After Form */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 1.1 }}
-            className="mt-10 flex flex-col md:flex-row justify-center items-center gap-6"
-          >
-            {/* Call Us */}
-            <a
-              href="tel:+919876543210"
-              className="bg-green-600 text-white px-6 py-3 rounded-md shadow-lg hover:bg-green-700 transition-all duration-300 transform hover:scale-105 text-center w-full md:w-auto"
-            >
-              📞 Call Us
-            </a>
-
-            {/* Mail Us */}
-            <a
-              href="mailto:yourmail@example.com"
-              className="bg-purple-600 text-white px-6 py-3 rounded-md shadow-lg hover:bg-purple-700 transition-all duration-300 transform hover:scale-105 text-center w-full md:w-auto"
-            >
-              📧 Mail Us
-            </a>
-          </motion.div>
+          {/* Error/Sucess message */}
+          {error && <p className="text-red-500 mt-4 text-center">{error}</p>}
+          {success && <p className="text-green-500 mt-4 text-center">Message sent successfully!</p>}
 
         </motion.div>
       </div>

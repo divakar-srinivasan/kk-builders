@@ -16,7 +16,7 @@ function Home() {
       <InfoSection />
       <Services />
       <ProcessFlow />
-      <Location /> {/* ✅ Capital L */}
+      <Location /> 
       <WhyUs />
       <VendorSlideshow />
     </div>

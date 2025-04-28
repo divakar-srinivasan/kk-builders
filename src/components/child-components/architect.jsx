@@ -19,6 +19,28 @@ const fadeInUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
 };
 
+const architectSections = [
+  {
+    title: "3D Elevation",
+    images: [img3D1, img3D2, img3D3],
+    description:
+      "Experience the future of your dream home with our state-of-the-art 3D elevation designs. By offering a realistic preview of your project, we ensure every texture, lighting, and proportion is meticulously visualized before construction begins. This advanced approach guarantees alignment with your expectations, enabling precise adjustments for an aesthetically pleasing and structurally sound design.",
+  },
+  {
+    title: "Structural Drawing",
+    images: [imgStructural1, imgStructural2, imgStructural3],
+    description:
+      "Our structural drawings provide the backbone of your construction, ensuring safety, stability, and longevity. These detailed plans incorporate essential components such as load-bearing walls, beams, columns, and foundations. Designed to meet rigorous engineering standards, they form the blueprint for a robust and secure building, standing strong for generations to come.",
+  },
+  {
+    title: "Plumbing Drawing",
+    images: [imgPlumbing1, imgPlumbing2, imgPlumbing3],
+    description:
+      "Discover efficient and sustainable plumbing solutions with our meticulously crafted plumbing drawings. From precise layouts for water supply systems to effective drainage and sanitation frameworks, these designs guarantee seamless functionality and adherence to building codes. With a focus on minimizing future maintenance costs, we ensure optimal water flow and waste management for every project.",
+  },
+];
+
+
 const Architect = () => {
   return (
     <div className="bg-gradient-to-br from-gray-100 to-gray-300 py-16">
@@ -43,62 +65,25 @@ const Architect = () => {
 
       {/* Architectural Sections */}
       <div className="max-w-6xl mx-auto px-6 mt-12 space-y-20">
-        {/* 3D Elevation */}
-        <motion.section
-          className="bg-white shadow-xl rounded-xl p-8 transform transition duration-500 hover:scale-[1.02] hover:shadow-2xl"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={fadeInUp}
-        >
-          <h2 className="text-4xl font-semibold text-gray-900 mb-4 border-l-4 border-yellow-500 pl-4">
-            3D Elevation
-          </h2>
-          <Slideshow images={[img3D1, img3D2, img3D3]} />
-          <p className="text-gray-700 mt-6 text-lg leading-relaxed italic">
-            3D elevation design provides a realistic preview of your future home before construction begins.
-            It allows for better visualization of textures, lighting, and proportions, ensuring the design aligns
-            with your expectations and aesthetic preferences.
-          </p>
-        </motion.section>
-
-        {/* Structural Drawing */}
-        <motion.section
-          className="bg-white shadow-xl rounded-xl p-8 transform transition duration-500 hover:scale-[1.02] hover:shadow-2xl"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={fadeInUp}
-        >
-          <h2 className="text-4xl font-semibold text-gray-900 mb-4 border-l-4 border-yellow-500 pl-4">
-            Structural Drawing
-          </h2>
-          <Slideshow images={[imgStructural1, imgStructural2, imgStructural3]} />
-          <p className="text-gray-700 mt-6 text-lg leading-relaxed italic">
-            Structural drawings outline the core framework of the building, ensuring durability and safety.
-            These plans include load-bearing walls, beams, and foundations, providing engineers with the necessary
-            details for a stable and secure construction process.
-          </p>
-        </motion.section>
-
-        {/* Plumbing Drawing */}
-        <motion.section
-          className="bg-white shadow-xl rounded-xl p-8 transform transition duration-500 hover:scale-[1.02] hover:shadow-2xl"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={fadeInUp}
-        >
-          <h2 className="text-4xl font-semibold text-gray-900 mb-4 border-l-4 border-yellow-500 pl-4">
-            Plumbing Drawing
-          </h2>
-          <Slideshow images={[imgPlumbing1, imgPlumbing2, imgPlumbing3]} />
-          <p className="text-gray-700 mt-6 text-lg leading-relaxed italic">
-            Plumbing drawings define the layout for water supply, drainage, and sanitation systems.
-            Proper planning ensures efficient water flow, waste management, and compliance with building codes,
-            reducing future maintenance costs.
-          </p>
-        </motion.section>
+        {architectSections.map((section, index) => (
+          <motion.section
+            key={index}
+            className="bg-white shadow-xl rounded-xl p-8 transform transition duration-500 hover:scale-[1.02] hover:shadow-2xl"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInUp}
+          >
+            <h2 className="text-4xl font-semibold text-gray-900 mb-4 border-l-4 border-yellow-500 pl-4">
+              {section.title}
+            </h2>
+            {/* Ensure the images array is passed correctly */}
+            <Slideshow images={section.images} />
+            <p className="text-gray-700 mt-6 text-lg leading-relaxed italic">
+              {section.description}
+            </p>
+          </motion.section>
+        ))}
       </div>
     </div>
   );

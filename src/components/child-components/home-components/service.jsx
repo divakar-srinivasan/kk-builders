@@ -16,45 +16,54 @@ function Services() {
   const services = [
     {
       title: "Residential Construction",
-      desc: "Tailored homes crafted with precision and care.",
+      desc: "Tailor-made homes crafted with precision and passion.",
+      details: "At the heart of our residential construction service lies a commitment to creating bespoke homes that embody your vision and lifestyle. From groundbreaking architectural designs to immaculate finishing, we bring your dream home to life with unparalleled craftsmanship, ensuring it exudes comfort, style, and lasting value.",
       img: residential,
     },
     {
       title: "Commercial Buildings",
-      desc: "Innovative spaces to grow your business.",
+      desc: "Architecting spaces that define business excellence.",
+      details: "Our commercial construction services are dedicated to crafting state-of-the-art spaces that fuel productivity and innovation. We design efficient, sustainable, and inspiring properties that align with the evolving demands of the modern business world, enabling your company to thrive in style.",
       img: commercial,
     },
     {
       title: "House Renovation",
-      desc: "Transforming homes into modern masterpieces.",
+      desc: "Reimagining homes, redefining elegance.",
+      details: "Transform your living space with our expert house renovation services. From refreshing a single room to reinventing your entire home, we combine creativity, precision, and modern techniques to elevate every corner into a luxurious masterpiece tailored to your taste.",
       img: renovation,
     },
     {
       title: "Interior Fit-outs",
-      desc: "Design-driven interiors for every space.",
+      desc: "Crafting exceptional interiors for extraordinary experiences.",
+      details: "Our interior fit-out services redefine the way you live, work, and interact with your spaces. By seamlessly blending functionality with aesthetic finesse, we deliver custom-designed interiors that prioritize your comfort, productivity, and personal style, ensuring every detail resonates with perfection.",
       img: interior,
     },
     {
       title: "Modular Kitchens",
-      desc: "Stylish and practical kitchen solutions.",
+      desc: "Cooking made stylish, efficient, and delightful.",
+      details: "Revolutionize your culinary experience with our tailored modular kitchens. Expertly combining sleek designs, innovative layouts, and smart storage solutions, we create kitchens that harmoniously balance beauty and functionality, making them the heart of your home.",
       img: kitchen,
     },
     {
       title: "Flooring Solutions",
-      desc: "Durable and elegant flooring for all spaces.",
+      desc: "Sophisticated flooring for enduring charm and resilience.",
+      details: "Explore an extensive range of premium flooring options designed to enhance your space's character and durability. From timeless hardwood elegance to contemporary tiles, our flooring solutions marry luxury with practicality, ensuring effortless maintenance and longevity.",
       img: flooring,
     },
     {
       title: "Roofing & Waterproofing",
-      desc: "Protection and durability above all.",
+      desc: "Shielding your property with unparalleled excellence.",
+      details: "Our roofing and waterproofing services deliver a robust shield against nature's challenges. By utilizing cutting-edge materials and advanced techniques, we provide durable, weather-resistant solutions that ensure your property stays protected, secure, and energy-efficient for years to come.",
       img: roofing,
     },
     {
       title: "Exterior Facades",
-      desc: "Aesthetic and functional exterior finishes.",
+      desc: "Transforming exteriors with striking elegance and durability.",
+      details: "Elevate your property's curb appeal with our meticulously crafted exterior facades. Blending sophisticated designs with resilient materials, we create breathtaking exteriors that not only impress but also enhance energy efficiency and structural integrity.",
       img: facade,
     },
   ];
+  
 
   return (
     <div className="w-full flex flex-col items-center bg-gray-50 py-16 px-4 relative">
@@ -114,8 +123,12 @@ function Services() {
               <h4 className="text-2xl font-bold text-blue-800 mb-2">
                 {selectedService.title}
               </h4>
-              <p className="text-gray-700 text-md text-center">
+              <p className="text-gray-700 text-md text-center mb-4">
                 {selectedService.desc}
+              </p>
+              <h5 className="text-lg font-semibold text-blue-800 mb-2">Details</h5>
+              <p className="text-gray-700 text-md text-center">
+                {selectedService.details}
               </p>
             </motion.div>
           </motion.div>

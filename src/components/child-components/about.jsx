@@ -3,14 +3,10 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import img1 from '../../assets/1.jpg';
-import img2 from '../../assets/2.jpg';
-import img3 from '../../assets/3.jpg';
 
 function About() {
   const teamMembers = [
-    { name: "John Doe", role: "CEO & Founder", img: img1, desc: "Leading with vision and integrity, driving the company towards excellence." },
-    { name: "Jane Smith", role: "Lead Architect", img: img2, desc: "Innovative designs and architectural expertise, transforming ideas into reality." },
-    { name: "Michael Johnson", role: "Project Manager", img: img3, desc: "Ensuring on-time delivery and quality execution with precision." }
+    { name: "Karthik", role: "CEO & Founder", img: img1, desc: "Leading with vision and integrity, driving the company towards excellence." },
   ];
 
   const faqData = [
