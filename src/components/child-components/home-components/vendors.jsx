@@ -11,7 +11,8 @@ import img4 from "../../../assets/19.avif";
 import img5 from "../../../assets/20.jpg";
 import img6 from "../../../assets/21.webp";
 import img7 from "../../../assets/22.jpg";
-import img8 from "../../../assets/25.jpg"
+import img8 from "../../../assets/25.jpg";
+
 const vendors = [
   { name: "Amman TRY Steel", image: img1 },
   { name: "Kiscol Steel", image: img2 },
@@ -28,10 +29,30 @@ const VendorSlideshow = () => {
     dots: false,
     infinite: true,
     autoplay: true,
-    autoplaySpeed: 1500,
+    autoplaySpeed: 2000,
     slidesToShow: 4,
     slidesToScroll: 1,
     arrows: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
 
   return (
@@ -55,19 +76,17 @@ const VendorSlideshow = () => {
               whileTap={{ scale: 0.95 }}
             >
               <motion.div
-                className="bg-white rounded-2xl shadow-lg p-6 transition-transform transform hover:scale-105 hover:shadow-2xl"
-                initial={{ opacity: 0, y: 50 }}
+                className="bg-white rounded-xl shadow-xl p-6 transition-all transform hover:scale-105 hover:shadow-2xl"
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
               >
                 <img
                   src={vendor.image}
                   alt={`${vendor.name} Logo`}
-                  className="w-full h-44 object-contain rounded-lg"
+                  className="w-full h-44 object-contain rounded-lg mb-4"
                 />
-                <p className="mt-4 font-semibold italic text-gray-900 text-lg">
-                  {vendor.name}
-                </p>
+                <p className="mt-4 font-semibold text-lg text-gray-900">{vendor.name}</p>
               </motion.div>
             </motion.div>
           ))}

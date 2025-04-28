@@ -63,7 +63,37 @@ function Services() {
       img: facade,
     },
   ];
-  
+
+  // Animation variants for continuous jumping
+  const containerVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: [0, -15, 0], // Jumping sequence: start, peak, end
+      transition: {
+        y: {
+          repeat: Infinity, // Loop infinitely
+          repeatType: "loop", // Smooth looping
+          duration: 2, // Duration of one complete jump
+          ease: "easeInOut" // Smooth acceleration/deceleration
+        },
+        opacity: {
+          duration: 0.5
+        }
+      }
+    }
+  };
+
+  // Stagger animation for initial appearance
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
 
   return (
     <div className="w-full flex flex-col items-center bg-gray-50 py-16 px-4 relative">
@@ -71,12 +101,25 @@ function Services() {
         Our Construction Services
       </h3>
 
-      <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 max-w-7xl w-full">
+      <motion.div
+        className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 max-w-7xl w-full"
+        variants={staggerContainer}
+        initial="hidden"
+        animate="show"
+      >
         {services.map((service, index) => (
           <motion.div
             key={index}
-            className="bg-white rounded-xl shadow-md p-4 flex flex-col items-center text-center hover:shadow-xl transition duration-300 cursor-pointer"
-            whileHover={{ scale: 1.05 }}
+            className="bg-white rounded-xl shadow-md p-4 flex flex-col items-center text-center hover:shadow-xl cursor-pointer"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            whileHover={{
+              scale: 1.05,
+              y: -20, // Extra lift on hover
+              transition: { type: "spring", stiffness: 300 }
+            }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => setSelectedService(service)}
           >
             <img
@@ -90,24 +133,24 @@ function Services() {
             <p className="text-gray-600 text-sm">{service.desc}</p>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
 
       {/* Selected Service Modal */}
       <AnimatePresence>
         {selectedService && (
           <motion.div
-            className="fixed inset-0 bg-transparent backdrop-blur-sm flex items-center justify-center z-50"
+            className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-50"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedService(null)}
           >
             <motion.div
-              className="bg-white rounded-xl shadow-2xl p-6 w-[90%] max-w-lg flex flex-col items-center relative"
+              className="bg-white rounded-xl shadow-2xl p-6 w-[90%] max-w-lg flex flex-col items-center relative mx-4"
               initial={{ scale: 0.5, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.5, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the modal
+              onClick={(e) => e.stopPropagation()}
             >
               <button
                 className="absolute top-2 right-2 text-gray-500 hover:text-red-500 text-2xl font-bold"
