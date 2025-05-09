@@ -92,7 +92,6 @@ const Intro = ({ onComplete }) => {
           className="absolute inset-0 bg-red-900 rounded-full"
         />
 
-        {/* Initial K letters animation */}
         {animationPhase < 2 && (
           <>
             {/* Left K */}
